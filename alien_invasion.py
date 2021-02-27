@@ -9,7 +9,7 @@ class AlienInvasion:
     # Initializes background settings
     def __init__(self):
         pygame.init()
-        self.settings = Settings()
+        self.settings = Settings()  # An instance of the Settings class
 
         # Set screen size and game title
         self.screen = pygame.display.set_mode(
