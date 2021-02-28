@@ -5,7 +5,10 @@ import pygame
 class Ship:
     def __init__(self, ai_game):
         # Initialize the ship and set its starting position
+        # ai_game -- current instance of the game
         self.screen = ai_game.screen
+
+        # Doing this allows us to place the ship in the correct location on the screen.
         self.screen_rect = ai_game.screen.get_rect()
 
         # Load the ship image and get its rect
