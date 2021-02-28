@@ -40,6 +40,11 @@ class AlienInvasion:
             # Check if the player quit the game
             if event.type == pygame.QUIT:
                 sys.exit()
+                # Detects when a player presses the down key
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RIGHT:
+                    # Move the ship to the right by 1 pixel
+                    self.ship.rect.x += 1
 
     def _update_screen(self):
         # Update images on the screen, and flip to the new screen.
