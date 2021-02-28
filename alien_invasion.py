@@ -36,7 +36,7 @@ class AlienInvasion:
             # Redraw the screen during each pass through the loop.
             # Fill the screen with the background color
             self.screen.fill(self.settings.bg_color)
-            
+
             # Draw the ship on the screen
             self.ship.blitme()
 
