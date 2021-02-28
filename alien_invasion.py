@@ -31,6 +31,9 @@ class AlienInvasion:
             # Call the helper method to check events
             self._check_events()
 
+            # Call the update method from the Ship class
+            self.ship.update()
+
             # Call the helper method to update the screen
             self._update_screen()
 
@@ -40,11 +43,13 @@ class AlienInvasion:
             # Check if the player quit the game
             if event.type == pygame.QUIT:
                 sys.exit()
-                # Detects when a player presses the down key
+            # Moves the ship right and ensures continuous movement
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RIGHT:
-                    # Move the ship to the right by 1 pixel
-                    self.ship.rect.x += 1
+                    self.ship.moving_right = True
+            elif event.type == pygame.KEYUP:
+                if event.type == pygame.K_RIGHT:
+                    self.ship.moving_right = False
 
     def _update_screen(self):
         # Update images on the screen, and flip to the new screen.
