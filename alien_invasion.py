@@ -18,9 +18,6 @@ class AlienInvasion:
         )
         pygame.display.set_caption("Alien Invasion")
 
-        # Set the background color
-        # self.bg_color = (230, 230, 230) # Not needed since already initialized in the Settings module
-
         # Create an instance of the Ship class
         # Gives Ship class access to the game’s resources
         self.ship = Ship(self)
@@ -40,7 +37,7 @@ class AlienInvasion:
     def _check_events(self):
         # Respond to keypresses and mouse events
         for event in pygame.event.get():
-            # Check if the player quit the game
+            # Quit the game using the close (X) button
             if event.type == pygame.QUIT:
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
@@ -59,6 +56,9 @@ class AlienInvasion:
         # Moves the ship left
         elif event.key == pygame.K_LEFT:
             self.ship.moving_left = True
+        # Quit the game with a shortcut
+        elif event.key == pygame.K_q:
+            sys.exit()
 
     # Method to hold the KEYUP events
     def _check_keyup_events(self, event):
