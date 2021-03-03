@@ -27,6 +27,9 @@ class AlienInvasion:
         # Gives Ship class access to the game’s resources
         self.ship = Ship(self)
 
+        # Add an instance of the Group class to manage the bullets
+        self.bullets = pygame.sprite.Group()
+
     # Create the function to start the main loop for the game
     def run_game(self):
         while True:
