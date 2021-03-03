@@ -78,9 +78,9 @@ class AlienInvasion:
     # Method to hold the KEYUP events
     def _check_keyup_events(self, event):
         # Respond to key release
-        if event.type == pygame.K_RIGHT:
+        if event.key == pygame.K_RIGHT:
             self.ship.moving_right = False
-        elif event.type == pygame.K_LEFT:
+        elif event.key == pygame.K_LEFT:
             self.ship.moving_left = False
 
     # Helper method to create a new bullet and add it to the bullets group
