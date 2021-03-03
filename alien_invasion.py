@@ -92,10 +92,11 @@ class AlienInvasion:
 
     # Helper method to create a new bullet and add it to the bullets group
     def _fire_bullet(self):
-        # Create an instance of the Bullet class
-        new_bullet = Bullet(self)
-        # Add a group of bullets using add(). Similar to append()
-        self.bullets.add(new_bullet)
+        if len(self.bullets) < self.settings.bullets_allowed:
+            # Create an instance of the Bullet class
+            new_bullet = Bullet(self)
+            # Add a group of bullets using add(). Similar to append()
+            self.bullets.add(new_bullet)
 
     def _update_screen(self):
         # Update images on the screen, and flip to the new screen.
