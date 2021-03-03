@@ -39,6 +39,9 @@ class AlienInvasion:
             # Call the update method from the Ship class
             self.ship.update()
 
+            # Call the bullet update method to update position of the bullet
+            self.bullets.update()
+
             # Call the helper method to update the screen
             self._update_screen()
 
