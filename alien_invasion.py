@@ -43,6 +43,13 @@ class AlienInvasion:
             # Call the bullet update method to update position of the bullet
             self.bullets.update()
 
+            # Remove the fired bullets for performance and memory efficiency using a copy of the group of bullets
+            for bullet in self.bullets.copy():
+                # Check if the bullet has disappeared from screen
+                if bullet.rect.bottom <= 0:
+                    self.bullets.remove(bullet)
+            # print(len(self.bullets))
+
             # Call the helper method to update the screen
             self._update_screen()
 
