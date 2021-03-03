@@ -3,6 +3,7 @@ import pygame
 
 from settings import Settings
 from ship import Ship
+from bullet import Bullet
 
 # Create the Alien Invasion class
 # Overall class to manage game assets and behavior
@@ -70,6 +71,9 @@ class AlienInvasion:
         # Quit the game with a shortcut
         elif event.key == pygame.K_q:
             sys.exit()
+        # Fire the bullet with the spacebar using the helper method
+        elif event.key == pygame.K_SPACE:
+            self._fire_bullet()
 
     # Method to hold the KEYUP events
     def _check_keyup_events(self, event):
@@ -79,6 +83,13 @@ class AlienInvasion:
         elif event.type == pygame.K_LEFT:
             self.ship.moving_left = False
 
+    # Helper method to create a new bullet and add it to the bullets group
+    def _fire_bullet(self):
+        # Create an instance of the Bullet class
+        new_bullet = Bullet(self)
+        # Add a group of bullets using add(). Similar to append()
+        self.bullets.add(new_bullet)
+
     def _update_screen(self):
         # Update images on the screen, and flip to the new screen.
 
@@ -87,6 +98,10 @@ class AlienInvasion:
 
         # Draw the ship on the screen
         self.ship.blitme()
+
+        # Draw the bullets on the screen from the bullet sprites
+        for bullet in self.bullets.sprites():
+            bullet.draw_bullet()
 
         # Make the most recently drawn screen visible
         pygame.display.flip()
