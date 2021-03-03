@@ -41,18 +41,12 @@ class AlienInvasion:
             self.ship.update()
 
             # Call the bullet update method to update position of the bullet
-            self.bullets.update()
-
-            # Remove the fired bullets for performance and memory efficiency using a copy of the group of bullets
-            for bullet in self.bullets.copy():
-                # Check if the bullet has disappeared from screen
-                if bullet.rect.bottom <= 0:
-                    self.bullets.remove(bullet)
-            # print(len(self.bullets))
+            self._update_bullets()
 
             # Call the helper method to update the screen
             self._update_screen()
 
+    # Method to hold the various key events
     def _check_events(self):
         # Respond to keypresses and mouse events
         for event in pygame.event.get():
@@ -98,6 +92,18 @@ class AlienInvasion:
             # Add a group of bullets using add(). Similar to append()
             self.bullets.add(new_bullet)
 
+    # Update position of bullets and get ride of old bullets
+    def _update_bullets(self):
+        # Update bullet positions
+        self.bullets.update()
+        # Remove the fired bullets for performance and memory efficiency using a copy of the group of bullets
+        for bullet in self.bullets.copy():
+            # Check if the bullet has disappeared from screen
+            if bullet.rect.bottom <= 0:
+                self.bullets.remove(bullet)
+        # print(len(self.bullets))
+
+    # Update the screen
     def _update_screen(self):
         # Update images on the screen, and flip to the new screen.
 
