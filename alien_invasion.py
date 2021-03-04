@@ -113,7 +113,7 @@ class AlienInvasion:
         # print(len(self.bullets))
 
         # Check for any bullets that have hit aliens
-        # If so, get rid of the bullet and the alien in dictionary created by groupcollide()
+        # If so, get rid of the bullet and the alien in a dictionary created by groupcollide()
         collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)
 
     # Update the positions of all aliens in the fleet
