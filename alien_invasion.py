@@ -114,6 +114,8 @@ class AlienInvasion:
 
     # Update the positions of all aliens in the fleet
     def _update_aliens(self):
+        # Check if the fleet is at an edge, then update the position of all aliens in the fleet
+        self._check_fleet_edges()
         self.aliens.update()
 
     # Helper method for the fleet of aliens
