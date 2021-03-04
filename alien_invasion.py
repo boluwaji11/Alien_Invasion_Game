@@ -110,7 +110,7 @@ class AlienInvasion:
         # print(len(self.bullets))
 
     # Helper method to create a new aliens and add it to the fleet of aliens
-    def _check_fleet(self):
+    def _create_fleet(self):
         # Make an alien
         alien = Alien(self)
         self.aliens.add(alien)
