@@ -111,9 +111,23 @@ class AlienInvasion:
 
     # Helper method to create a new aliens and add it to the fleet of aliens
     def _create_fleet(self):
-        # Make an alien
+        # Create an alien and find the number of aliens in a row
+        # Spacing between each alien is equal to on alien width
         alien = Alien(self)
-        self.aliens.add(alien)
+        alien_width = alien.rect.width  # Gets the alien's width
+        available_space_x = self.settings.screen_width - (2 * alien_width)
+        number_aliens_x = available_space_x // (2 * alien_width)
+
+        # Create the first row of aliens
+        for alien_number in range(number_aliens_x):
+            # Create an alien and place it in the row
+            alien = Alien(self)
+            # Each alien is pushed one alien width to the left
+            alien.x = alien_width + 2 * alien_width * alien_number
+            # Set the current position of the alien's rect
+            alien.rect.x = alien.x
+            # Add a group of aliens using add(). Similar to append()
+            self.aliens.add(alien)
 
     # Update the screen
     def _update_screen(self):
