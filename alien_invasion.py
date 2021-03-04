@@ -109,28 +109,39 @@ class AlienInvasion:
                 self.bullets.remove(bullet)
         # print(len(self.bullets))
 
-    # Helper method to create a new aliens and add it to the fleet of aliens
+    # Helper method for the fleet of aliens
     def _create_fleet(self):
         # Create an alien and find the number of aliens in a row
         # Spacing between each alien is equal to on alien width
         alien = Alien(self)
-        alien_width = alien.rect.width  # Gets the alien's width
+        alien_width, alien_height = alien.rect.size  # Gets the alien's width and height
         available_space_x = self.settings.screen_width - (2 * alien_width)
         number_aliens_x = available_space_x // (2 * alien_width)
 
-        # Create the first row of aliens and call the _create_alien method
-        for alien_number in range(number_aliens_x):
-            self._create_alien(alien_number)
+        # Determine the number of rows of aliens that fit on the screen
+        ship_height = self.ship.rect.height
+        available_space_y = (
+            self.settings.screen_height - (3 * alien_height) - ship_height
+        )
+        number_rows = available_space_y // (2 * alien_height)
 
-    # Helper method
-    def _create_alien(self, alien_number):
+        # Create the full fleet of aliens and call the _create_alien method
+        for row_number in range(number_rows):
+            # Creates one row of aliens
+            for alien_number in range(number_aliens_x):
+                self._create_alien(alien_number, row_number)
+
+    # Helper method to create one row of aliens
+    def _create_alien(self, alien_number, row_number):
         # Create an alien and place it in the row
         alien = Alien(self)
-        alien_width = alien.rect.width
+        alien_width, alien_height = alien.rect.size  # Gets the alien's width and height
         # Each alien is pushed one alien width to the left
         alien.x = alien_width + 2 * alien_width * alien_number
+        alien.y = alien_height + 2 * alien_height * row_number
         # Set the current position of the alien's rect
         alien.rect.x = alien.x
+        alien.rect.y = alien.y
         # Add a group of aliens using add(). Similar to append()
         self.aliens.add(alien)
 
