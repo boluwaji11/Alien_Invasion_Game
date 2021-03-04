@@ -152,6 +152,21 @@ class AlienInvasion:
         # Add a group of aliens using add(). Similar to append()
         self.aliens.add(alien)
 
+    # Check aliens on the edge of the screen
+    def _check_fleet_edges(self):
+        # Respond appropriately if any aliens have reached an edge
+        for alien in self.aliens.sprites():
+            if alien.check_edges():  # This is True by default
+                self._change_fleet_direction()
+                break
+
+    # Drop the fleet of aliens
+    def _change_fleet_direction(self):
+        # Drop the entire fleet and change the fleet's direction
+        for alien in self.aliens.sprites():
+            alien.rect.y += self.settings.fleet_drop_speed
+        self.settings.fleet_direction *= -1  # Moves kinda like a zigzag motion
+
     # Update the screen
     def _update_screen(self):
         # Update images on the screen, and flip to the new screen.
