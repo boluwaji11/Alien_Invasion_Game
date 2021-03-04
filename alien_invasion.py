@@ -132,6 +132,10 @@ class AlienInvasion:
         self._check_fleet_edges()
         self.aliens.update()
 
+        # Look for alien-ship collisions
+        if pygame.sprite.spritecollideany(self.ship, self.aliens):
+            print("Ship hit!!!")
+
     # Helper method for the fleet of aliens
     def _create_fleet(self):
         # Create an alien and find the number of aliens in a row
