@@ -49,6 +49,9 @@ class AlienInvasion:
             # Call the bullet update method to update position of the bullet
             self._update_bullets()
 
+            # Call the aliens update method to update position of the aliens
+            self._update_aliens()
+
             # Call the helper method to update the screen
             self._update_screen()
 
@@ -98,7 +101,7 @@ class AlienInvasion:
             # Add a group of bullets using add(). Similar to append()
             self.bullets.add(new_bullet)
 
-    # Update position of bullets and get ride of old bullets
+    # Update position of bullets and get rid of old bullets
     def _update_bullets(self):
         # Update bullet positions
         self.bullets.update()
@@ -108,6 +111,10 @@ class AlienInvasion:
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
         # print(len(self.bullets))
+
+    # Update the positions of all aliens in the fleet
+    def _update_aliens(self):
+        self.aliens.update()
 
     # Helper method for the fleet of aliens
     def _create_fleet(self):
