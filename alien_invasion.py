@@ -130,6 +130,8 @@ class AlienInvasion:
             bullet.draw_bullet()
 
         # Draw the alien on the screen
+        # The draw() method requires one argument:
+        # a surface on which to draw the elements from the group.
         self.aliens.draw(self.screen)
 
         # Make the most recently drawn screen visible
