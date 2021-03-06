@@ -37,6 +37,9 @@ class Settings:
         # So the aliens move right at the beginning of a new game
         self.fleet_direction = 1
 
+        # Scoring
+        self.alien_points = 50
+
     # Increase speed settings
     def increase_speed(self):
         self.ship_speed *= self.speedup_scale
