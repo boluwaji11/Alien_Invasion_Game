@@ -167,6 +167,9 @@ class AlienInvasion:
         if pygame.sprite.spritecollideany(self.ship, self.aliens):
             self._ship_hit()
 
+        # Look for alien hitting the bottom of the screen
+        self._check_aliens_bottom()
+
     # Helper method for the fleet of aliens
     def _create_fleet(self):
         # Create an alien and find the number of aliens in a row
