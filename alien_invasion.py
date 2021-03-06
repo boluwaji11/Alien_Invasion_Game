@@ -175,6 +175,10 @@ class AlienInvasion:
             self._create_fleet()
             self.settings.increase_speed()
 
+            # Increase level
+            self.stats.level += 1
+            self.sb.prep_level()
+
     # Respond to the ship being hit by an alien
     def _ship_hit(self):
         if self.stats.ships_left > 0:
