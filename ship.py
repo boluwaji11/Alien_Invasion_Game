@@ -1,10 +1,12 @@
 # Ship module to manage most of the behavior of the player's ship
 import pygame
+from pygame.sprite import Sprite
 
 # A class to manage the ship
-class Ship:
+class Ship(Sprite):
     def __init__(self, ai_game):
         # Initialize the ship and set its starting position
+        super().__init__()
         # ai_game -- current instance of the game
         self.screen = ai_game.screen
 
