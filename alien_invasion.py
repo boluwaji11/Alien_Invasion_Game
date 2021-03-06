@@ -184,8 +184,9 @@ class AlienInvasion:
     # Respond to the ship being hit by an alien
     def _ship_hit(self):
         if self.stats.ships_left > 0:
-            # Decrement ships_left
+            # Decrement ships_left, and update scoreboard
             self.stats.ships_left -= 1
+            self.sb.prep_ships()  # Reduces number of ships available on screen
 
             # Get rid of any remaining aliens and bullets
             self.aliens.empty()
