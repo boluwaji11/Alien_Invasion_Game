@@ -148,6 +148,15 @@ class AlienInvasion:
         # Pause by half a second
         sleep(0.5)
 
+    # Check if aliens have reached the bottom of the screen
+    def _check_aliens_bottom(self):
+        screen_rect = self.screen.get_rect()
+        for alien in self.aliens.sprites():
+            if alien.rect.bottom >= screen_rect.bottom:
+                # Treat this the same as if the ship got it
+                self._ship_hit()
+                break
+
     # Update the positions of all aliens in the fleet
     def _update_aliens(self):
         # Check if the fleet is at an edge, then update the position of all aliens in the fleet
