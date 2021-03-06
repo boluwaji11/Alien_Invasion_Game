@@ -79,8 +79,9 @@ class Scoreboard:
             self.stats.high_score = self.stats.score
             self.prep_high_score()
 
-    # Draw scores and level to the screen
+    # Draw scores, level, and ships to the screen
     def show_score(self):
         self.screen.blit(self.score_image, self.score_rect)
         self.screen.blit(self.high_score_image, self.high_score_rect)
         self.screen.blit(self.level_image, self.level_rect)
+        self.ships.draw(self.screen)
