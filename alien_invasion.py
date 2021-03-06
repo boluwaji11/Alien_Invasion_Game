@@ -5,6 +5,7 @@ import pygame
 
 from settings import Settings
 from game_stats import GameStats
+from button import Button
 from ship import Ship
 from bullet import Bullet
 from alien import Alien
@@ -42,6 +43,9 @@ class AlienInvasion:
 
         # Helper method to hold the fleet of aliens
         self._create_fleet()
+
+        # Make the Play button
+        self.play_button = Button(self, "Play")
 
     # Create the function to start the main loop for the game
     def run_game(self):
