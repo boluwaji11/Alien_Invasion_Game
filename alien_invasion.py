@@ -163,7 +163,9 @@ class AlienInvasion:
         collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)
 
         if collisions:
-            self.stats.score += self.settings.alien_points
+            # Ensure all aliens hit by the bullet gets counted on the score board
+            for aliens in collisions.values():
+                self.stats.score += self.settings.alien_points * len(aliens)
             self.sb.prep_score()
 
         if not self.aliens:
