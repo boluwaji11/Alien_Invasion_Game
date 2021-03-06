@@ -49,14 +49,17 @@ class AlienInvasion:
             # Call the helper method to check events
             self._check_events()
 
-            # Call the update method from the Ship class
-            self.ship.update()
+            # Parts of the game that should run only when game is active
+            if self.stats.game_active:
 
-            # Call the bullet update method to update position of the bullet
-            self._update_bullets()
+                # Call the update method from the Ship class
+                self.ship.update()
 
-            # Call the aliens update method to update position of the aliens
-            self._update_aliens()
+                # Call the bullet update method to update position of the bullet
+                self._update_bullets()
+
+                # Call the aliens update method to update position of the aliens
+                self._update_aliens()
 
             # Call the helper method to update the screen
             self._update_screen()
