@@ -250,6 +250,10 @@ class AlienInvasion:
         # a surface on which to draw the elements from the group.
         self.aliens.draw(self.screen)
 
+        # Draw the play button if the game is inactive
+        if not self.stats.game_active:
+            self.play_button.draw_button()
+
         # Make the most recently drawn screen visible
         pygame.display.flip()
 
