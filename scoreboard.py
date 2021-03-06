@@ -28,3 +28,7 @@ class Scoreboard:
         # 20 pixel from the right of the screen
         self.score_rect.right = self.screen_rect.right - 20
         self.score_rect.top = 20
+
+    # Draw score to the screen
+    def show_score(self):
+        self.screen.blit(self.score_image, self.score_rect)
